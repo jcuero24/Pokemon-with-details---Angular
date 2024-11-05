@@ -1,0 +1,101 @@
+/* Estilos generales */
+body, html {
+  height: 100%; /* Asegura que el body y html tengan altura completa */
+  margin: 0; /* Elimina los márgenes predeterminados */
+  background-image: url('/src/assets/pokeballs.jpg'); /* Ruta relativa a la carpeta assets */
+  background-size: cover; /* Asegura que la imagen cubra toda la pantalla */
+  background-position: center; /* Centra la imagen */
+  background-repeat: no-repeat; /* Evita que la imagen se repita */
+}
+
+/* Contenedor central con fondo semitransparente */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+  max-width: 600px;
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
+  background-color: rgba(255, 255, 255, 0.85); /* Fondo blanco semitransparente */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Título */
+h1 {
+  font-size: 2em;
+  margin-bottom: 10px;
+  color: #ff0000cc;
+}
+
+/* Entrada y botón */
+input[type="text"] {
+  width: 100%;
+  max-width: 300px;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1em;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 1em;
+  background-color: #ff0000cb;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #000000;
+}
+
+/* Mensaje de error */
+.error-message {
+  color: red;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+/* Detalles del Pokémon */
+.pokemon-details {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #ddd;
+}
+
+.pokemon-image {
+  width: 150px;
+  height: 150px;
+  margin: 20px 0;
+  border-radius: 10px;
+  border: 2px solid #ddd;
+}
+
+/* Lista de Pokémons disponibles */
+.available-pokemon {
+  margin-top: 30px;
+}
+
+.available-pokemon h3 {
+  font-size: 1.5em;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.available-pokemon ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.available-pokemon li {
+  font-size: 1em;
+  margin: 5px 0;
+  color: #555;
+}

@@ -1,3 +1,36 @@
- 
-
-<router-outlet />
+<div class="container">
+    <h1>Pokémon Finder</h1>
+  
+    <!-- Campo de entrada para buscar el Pokémon -->
+    <input type="text" pInputText placeholder="Ingresa el nombre o ID" [(ngModel)]="pokemonNameOrId" />
+    <button pButton label="Buscar" (click)="searchPokemon()"></button>
+  
+    <!-- Mensaje de carga -->
+    <div *ngIf="loading()">Cargando...</div>
+  
+    <!-- Mensaje de error si el Pokémon no se encuentra -->
+    <div *ngIf="error()" class="error-message">Pokémon no encontrado. Inténtalo de nuevo.</div>
+  
+    <!-- Mostrar detalles del Pokémon si existe -->
+    <div *ngIf="pokemonData" class="pokemon-details">
+      <h2>{{ pokemonData.name | titlecase }}</h2>
+      <img [src]="pokemonData.sprites.front_default" alt="{{ pokemonData.name }}" class="pokemon-image" />
+      <p><strong>ID:</strong> {{ pokemonData.id }}</p>
+      <p><strong>Altura:</strong> {{ pokemonData.height / 10 }} m</p>
+      <p><strong>Peso:</strong> {{ pokemonData.weight / 10 }} kg</p>
+      <p><strong>Habilidades:</strong>
+        <span *ngFor="let ability of pokemonData.abilities; let i = index">
+          {{ ability.ability.name }}<span *ngIf="!isLastAbility(i)">, </span>
+        </span>
+      </p>
+    </div>
+  
+    <!-- Lista de Pokémons disponibles (solo si no hay texto en el campo de búsqueda) -->
+    <div *ngIf="!pokemonNameOrId" class="available-pokemon">
+      <h3>Pokémon Disponibles</h3>
+      <ul>
+        <li *ngFor="let poke of availablePokemon">{{ poke.id }} - {{ poke.name }}</li>
+      </ul>
+    </div>
+  </div>
+  
